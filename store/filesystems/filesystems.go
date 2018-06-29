@@ -26,7 +26,7 @@ func CheckFSPath(path string, filesystem string, mountOptions ...string) error {
 		return err
 	}
 
-	if statfs.Type != fsType {
+	if statfs.Type != uint32(fsType) {
 		return errorspkg.Errorf("Store path filesystem (%s) is incompatible with requested driver", path)
 	}
 
